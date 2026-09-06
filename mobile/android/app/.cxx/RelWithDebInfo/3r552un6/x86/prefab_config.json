@@ -1,0 +1,11 @@
+{
+  "enabled": true,
+  "prefabPath": "/Users/vanshjain/.gradle/caches/modules-2/files-2.1/com.google.prefab/cli/2.1.0/aa32fec809c44fa531f01dcfb739b5b3304d3050/cli-2.1.0-all.jar",
+  "packages": [
+    "/Users/vanshjain/Documents/Projects/youthqitapp/frontend_mobile/node_modules/react-native-reanimated/android/build/intermediates/prefab_package/release/prefab",
+    "/Users/vanshjain/Documents/Projects/youthqitapp/frontend_mobile/node_modules/react-native-worklets/android/build/intermediates/prefab_package/release/prefab",
+    "/Users/vanshjain/.gradle/caches/9.0.0/transforms/3ad8e3ad5bd33d09e23b1467ab54f991/transformed/jetified-react-android-0.83.1-release/prefab",
+    "/Users/vanshjain/.gradle/caches/9.0.0/transforms/dcd889311910fc8ae3bd1d7c68714ac6/transformed/jetified-hermes-android-0.14.0-release/prefab",
+    "/Users/vanshjain/.gradle/caches/9.0.0/transforms/4867d1694203507de539831324e9266b/transformed/jetified-fbjni-0.7.0/prefab"
+  ]
+}
