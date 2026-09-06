@@ -1,0 +1,99 @@
+{
+    "app": {
+        "name": "Arbuda Admin",
+        "tagline": "B2B Wholesale Management"
+    },
+    "nav": {
+        "dashboard": "Dashboard",
+        "catalog": "Catalog",
+        "products": "Products",
+        "categories": "Categories",
+        "brands": "Brands",
+        "orders": "Orders",
+        "invoices": "Invoices",
+        "customers": "Customers",
+        "employees": "Employees",
+        "reports": "Reports",
+        "settings": "Settings",
+        "logout": "Logout"
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "totalRevenue": "Total Revenue",
+        "totalOrders": "Total Orders",
+        "totalCustomers": "Total Customers",
+        "productsSold": "Products Sold",
+        "recentOrders": "Recent Orders",
+        "lowStock": "Low Stock Alert"
+    },
+    "products": {
+        "title": "Products",
+        "addProduct": "Add Product",
+        "editProduct": "Edit Product",
+        "importCsv": "Import CSV",
+        "exportProducts": "Export",
+        "productName": "Product Name",
+        "sku": "SKU",
+        "category": "Category",
+        "price": "Price",
+        "stock": "Stock",
+        "status": "Status",
+        "active": "Active",
+        "inactive": "Inactive",
+        "minOrderQty": "Minimum Order Qty",
+        "maxOrderQty": "Maximum Order Qty",
+        "lowStockThreshold": "Low Stock Alert"
+    },
+    "orders": {
+        "title": "Orders",
+        "orderNumber": "Order #",
+        "customer": "Customer",
+        "date": "Date",
+        "total": "Total",
+        "status": "Status",
+        "payment": "Payment",
+        "pending": "Pending",
+        "confirmed": "Confirmed",
+        "shipped": "Shipped",
+        "delivered": "Delivered",
+        "cancelled": "Cancelled"
+    },
+    "customers": {
+        "title": "Customers",
+        "addCustomer": "Add Customer",
+        "name": "Name",
+        "phone": "Phone",
+        "email": "Email",
+        "type": "Type",
+        "totalSpent": "Total Spent",
+        "orderHistory": "Order History"
+    },
+    "employees": {
+        "title": "Employees",
+        "addEmployee": "Add Employee",
+        "name": "Name",
+        "email": "Email",
+        "permissions": "Permissions",
+        "status": "Status"
+    },
+    "reports": {
+        "title": "Reports & Analytics",
+        "salesOverview": "Sales Overview",
+        "salesByProduct": "Sales by Product",
+        "salesByCategory": "Sales by Category",
+        "inventoryReport": "Inventory Report",
+        "exportCsv": "Export CSV",
+        "exportExcel": "Export Excel"
+    },
+    "common": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "add": "Add",
+        "search": "Search",
+        "loading": "Loading...",
+        "noData": "No data available",
+        "actions": "Actions"
+    }
+}

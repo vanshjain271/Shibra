@@ -1,0 +1,99 @@
+{
+    "app": {
+        "name": "Arbuda एडमिन",
+        "tagline": "B2B थोक प्रबंधन"
+    },
+    "nav": {
+        "dashboard": "डैशबोर्ड",
+        "catalog": "कैटलॉग",
+        "products": "उत्पाद",
+        "categories": "श्रेणियाँ",
+        "brands": "ब्रांड्स",
+        "orders": "ऑर्डर",
+        "invoices": "इनवॉइस",
+        "customers": "ग्राहक",
+        "employees": "कर्मचारी",
+        "reports": "रिपोर्ट्स",
+        "settings": "सेटिंग्स",
+        "logout": "लॉगआउट"
+    },
+    "dashboard": {
+        "title": "डैशबोर्ड",
+        "totalRevenue": "कुल राजस्व",
+        "totalOrders": "कुल ऑर्डर",
+        "totalCustomers": "कुल ग्राहक",
+        "productsSold": "बेचे गए उत्पाद",
+        "recentOrders": "हाल के ऑर्डर",
+        "lowStock": "कम स्टॉक अलर्ट"
+    },
+    "products": {
+        "title": "उत्पाद",
+        "addProduct": "उत्पाद जोड़ें",
+        "editProduct": "उत्पाद संपादित करें",
+        "importCsv": "CSV आयात करें",
+        "exportProducts": "निर्यात करें",
+        "productName": "उत्पाद का नाम",
+        "sku": "SKU",
+        "category": "श्रेणी",
+        "price": "कीमत",
+        "stock": "स्टॉक",
+        "status": "स्थिति",
+        "active": "सक्रिय",
+        "inactive": "निष्क्रिय",
+        "minOrderQty": "न्यूनतम ऑर्डर मात्रा",
+        "maxOrderQty": "अधिकतम ऑर्डर मात्रा",
+        "lowStockThreshold": "कम स्टॉक अलर्ट"
+    },
+    "orders": {
+        "title": "ऑर्डर",
+        "orderNumber": "ऑर्डर #",
+        "customer": "ग्राहक",
+        "date": "तारीख",
+        "total": "कुल",
+        "status": "स्थिति",
+        "payment": "भुगतान",
+        "pending": "लंबित",
+        "confirmed": "पुष्टि",
+        "shipped": "भेजा गया",
+        "delivered": "वितरित",
+        "cancelled": "रद्द"
+    },
+    "customers": {
+        "title": "ग्राहक",
+        "addCustomer": "ग्राहक जोड़ें",
+        "name": "नाम",
+        "phone": "फ़ोन",
+        "email": "ईमेल",
+        "type": "प्रकार",
+        "totalSpent": "कुल खर्च",
+        "orderHistory": "ऑर्डर इतिहास"
+    },
+    "employees": {
+        "title": "कर्मचारी",
+        "addEmployee": "कर्मचारी जोड़ें",
+        "name": "नाम",
+        "email": "ईमेल",
+        "permissions": "अनुमतियाँ",
+        "status": "स्थिति"
+    },
+    "reports": {
+        "title": "रिपोर्ट्स और विश्लेषण",
+        "salesOverview": "बिक्री अवलोकन",
+        "salesByProduct": "उत्पाद द्वारा बिक्री",
+        "salesByCategory": "श्रेणी द्वारा बिक्री",
+        "inventoryReport": "इन्वेंटरी रिपोर्ट",
+        "exportCsv": "CSV निर्यात करें",
+        "exportExcel": "Excel निर्यात करें"
+    },
+    "common": {
+        "save": "सहेजें",
+        "cancel": "रद्द करें",
+        "delete": "हटाएं",
+        "edit": "संपादित करें",
+        "add": "जोड़ें",
+        "search": "खोजें",
+        "loading": "लोड हो रहा है...",
+        "noData": "कोई डेटा उपलब्ध नहीं",
+        "actions": "कार्रवाई"
+    }
+}
