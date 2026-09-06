@@ -1,0 +1,155 @@
+# Pin Firebase SDK to v10.x to bypass breaking API changes in v11.x
+# that currently cause 20+ compile errors in @react-native-firebase/auth 21.14.0
+$FirebaseSDKVersion = '10.29.0'
+
+# Resolve react_native_pods.rb with node to allow for hoisting
+require Pod::Executable.execute_command('node', ['-p',
+  'require.resolve(
+    "react-native/scripts/react_native_pods.rb",
+    {paths: [process.argv[1]]},
+  )', __dir__]).strip
+
+platform :ios, min_ios_version_supported
+prepare_react_native_project!
+
+use_modular_headers!
+
+linkage = ENV['USE_FRAMEWORKS']
+if linkage != nil
+  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
+  use_frameworks! :linkage => linkage.to_sym
+end
+
+target 'mobile' do
+  config = use_native_modules!
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+
+  post_install do |installer|
+    react_native_post_install(
+      installer,
+      config[:reactNativePath],
+      :mac_catalyst_enabled => false,
+    )
+
+    # -----------------------------------------------------------------------
+    # Fix 1: Set deployment target for all targets
+    # -----------------------------------------------------------------------
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |cfg|
+        cfg.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.1'
+      end
+    end
+
+    # -----------------------------------------------------------------------
+    # Fix 2: React Native 0.83.1 duplicate module declarations (Xcode 26 bug)
+    # Two modulemaps in the same directory both declare the same module name
+    # with "umbrella header", causing cascading _DarwinFoundation build failures.
+    # Solution: neutralize the secondary (non-primary) modulemap in each dir.
+    # -----------------------------------------------------------------------
+    begin
+      require 'fileutils'
+      secondary_modulemaps = [
+        "#{installer.sandbox.root}/Headers/Public/ReactCommon/React-RuntimeApple.modulemap",
+        "#{installer.sandbox.root}/Headers/Public/react_runtime/React-jsitooling.modulemap",
+      ]
+      secondary_modulemaps.each do |map_path|
+        if File.exist?(map_path)
+          FileUtils.chmod(0644, map_path)
+          File.write(map_path, "// Neutralized: duplicate module conflicts with primary modulemap\n")
+          Pod::UI.puts "Fixed: Neutralized #{File.basename(map_path)}"
+        end
+      end
+    rescue => e
+      Pod::UI.warn "Modulemap fix failed (non-fatal): #{e.message}"
+    end
+
+    # -----------------------------------------------------------------------
+    # Fix 3: Firebase.h — guard FirebaseAuth-Swift.h with __has_include
+    # This Swift-generated header doesn't exist at compile time in Xcode Cloud.
+    # -----------------------------------------------------------------------
+    begin
+      require 'fileutils'
+      firebase_h_paths = [
+        "#{installer.sandbox.root}/Headers/Private/Firebase/Firebase.h",
+        "#{installer.sandbox.root}/Headers/Public/Firebase/Firebase.h",
+        "#{installer.sandbox.root}/Firebase/CoreOnly/Sources/Firebase.h",
+      ]
+      old_import = '      #import <FirebaseAuth/FirebaseAuth-Swift.h>'
+      new_import  = '      #if __has_include(<FirebaseAuth/FirebaseAuth-Swift.h>)' + "\n" +
+                    '        #import <FirebaseAuth/FirebaseAuth-Swift.h>' + "\n" +
+                    '      #endif'
+      firebase_h_paths.each do |firebase_h|
+        if File.exist?(firebase_h)
+          FileUtils.chmod(0644, firebase_h)
+          content = File.read(firebase_h)
+          if content.include?(old_import)
+            File.write(firebase_h, content.gsub(old_import, new_import))
+            Pod::UI.puts "Fixed: Guarded FirebaseAuth-Swift.h in #{File.basename(File.dirname(firebase_h))}/Firebase.h"
+          end
+        end
+      end
+    rescue => e
+      Pod::UI.warn "Firebase.h fix failed (non-fatal): #{e.message}"
+    end
+
+    # -----------------------------------------------------------------------
+    # Fix 5: Patch RNFBAuthModule.m for Firebase SDK 10.29.0 compat
+    # RNFB v21.x requires setLinkDomain: (added in Firebase 11.x)
+    # But Firebase 11.x removed authWithApp: (used by RNFB v21.x, causing 20 errors).
+    # Since we downgraded to Firebase 10.29.0 to fix the 20 errors, we must
+    # patch out the 1 missing method (setLinkDomain:).
+    # -----------------------------------------------------------------------
+    begin
+      require 'fileutils'
+      rnfb_auth_m = "#{installer.sandbox.root}/../../node_modules/@react-native-firebase/auth/ios/RNFBAuth/RNFBAuthModule.m"
+      if File.exist?(rnfb_auth_m)
+        FileUtils.chmod(0644, rnfb_auth_m)
+        content = File.read(rnfb_auth_m)
+        old_block = "  if (actionCodeSettings[keyLinkDomain]) {\n    NSString *linkDomain = actionCodeSettings[keyLinkDomain];\n    [settings setLinkDomain:linkDomain];\n  }"
+        new_block = "  // if (actionCodeSettings[keyLinkDomain]) {\n  //   NSString *linkDomain = actionCodeSettings[keyLinkDomain];\n  //   [settings setLinkDomain:linkDomain];\n  // } // PATCHED: setLinkDomain is Firebase 11.x only"
+        if content.include?(old_block)
+          File.write(rnfb_auth_m, content.gsub(old_block, new_block))
+          Pod::UI.puts "Fixed: Patched setLinkDomain in RNFBAuthModule.m for Firebase 10.x compat"
+        end
+      end
+    rescue => e
+      Pod::UI.warn "RNFBAuth patch failed: #{e.message}"
+    end
+
+    # -----------------------------------------------------------------------
+    # Fix 4: fmt/base.h — disable consteval for Apple Clang 17 (Xcode 26)
+    # -----------------------------------------------------------------------
+    begin
+      require 'fileutils'
+      fmt_base_h = "#{installer.sandbox.root}/fmt/include/fmt/base.h"
+      if File.exist?(fmt_base_h)
+        FileUtils.chmod(0644, fmt_base_h)
+        content = File.read(fmt_base_h)
+        unless content.include?('PATCHED_XCODE26')
+          patched = content.gsub(
+            "#if FMT_USE_CONSTEVAL\n#  define FMT_CONSTEVAL consteval\n#  define FMT_CONSTEXPR20 constexpr\n#else\n#  define FMT_CONSTEVAL\n#  define FMT_CONSTEXPR20\n#endif",
+            "// PATCHED_XCODE26\n#define FMT_USE_CONSTEVAL 0\n#define FMT_CONSTEVAL\n#define FMT_CONSTEXPR20\n"
+          )
+          if patched != content
+            File.write(fmt_base_h, patched)
+            Pod::UI.puts "Fixed: Patched fmt/base.h (FMT_CONSTEVAL disabled)"
+          else
+            patched2 = content.gsub(
+              "#  define FMT_CONSTEVAL consteval",
+              "#  define FMT_CONSTEVAL /* PATCHED_XCODE26 */"
+            )
+            File.write(fmt_base_h, patched2)
+            Pod::UI.puts "Fixed: Applied fallback fmt patch"
+          end
+        end
+      end
+    rescue => e
+      Pod::UI.warn "fmt/base.h fix failed (non-fatal): #{e.message}"
+    end
+
+  end
+end

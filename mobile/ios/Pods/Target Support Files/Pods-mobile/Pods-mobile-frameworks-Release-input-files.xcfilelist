@@ -1,0 +1,11 @@
+${PODS_ROOT}/Target Support Files/Pods-mobile/Pods-mobile-frameworks.sh
+${PODS_XCFRAMEWORKS_BUILD_DIR}/FBAEMKit/FBAEMKit.framework/FBAEMKit
+${PODS_XCFRAMEWORKS_BUILD_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework/FBSDKCoreKit
+${PODS_XCFRAMEWORKS_BUILD_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework/FBSDKCoreKit_Basics
+${PODS_XCFRAMEWORKS_BUILD_DIR}/FBSDKGamingServicesKit/FBSDKGamingServicesKit.framework/FBSDKGamingServicesKit
+${PODS_XCFRAMEWORKS_BUILD_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework/FBSDKLoginKit
+${PODS_XCFRAMEWORKS_BUILD_DIR}/FBSDKShareKit/FBSDKShareKit.framework/FBSDKShareKit
+${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermesvm.framework/hermesvm
+${PODS_XCFRAMEWORKS_BUILD_DIR}/razorpay-core-pod/Razorpay.framework/Razorpay
+${PODS_XCFRAMEWORKS_BUILD_DIR}/razorpay-core-pod/RazorpayCore.framework/RazorpayCore
+${PODS_XCFRAMEWORKS_BUILD_DIR}/razorpay-pod/RazorpayStandard.framework/RazorpayStandard

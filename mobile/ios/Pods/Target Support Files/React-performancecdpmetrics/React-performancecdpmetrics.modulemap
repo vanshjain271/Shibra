@@ -1,0 +1,6 @@
+module react_performance_cdpmetrics {
+  umbrella header "React-performancecdpmetrics-umbrella.h"
+
+  export *
+  module * { export * }
+}
