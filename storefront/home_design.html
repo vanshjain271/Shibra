@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Arbuda | Premium Mobile Accessories</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#575e70",
+                        "on-secondary-container": "#5c6274",
+                        "on-secondary-fixed-variant": "#404758",
+                        "on-background": "#191c1d",
+                        "on-secondary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "primary-fixed": "#6ffbbe",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#3c4a42",
+                        "surface-tint": "#006c49",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#6c7a71",
+                        "on-secondary-fixed": "#141b2b",
+                        "on-primary-fixed": "#002113",
+                        "on-surface": "#191c1d",
+                        "on-primary-container": "#00422b",
+                        "tertiary-fixed": "#dce2f3",
+                        "on-tertiary-container": "#323946",
+                        "surface-container-low": "#f3f4f5",
+                        "outline-variant": "#bbcabf",
+                        "surface-dim": "#d9dadb",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#404754",
+                        "secondary-container": "#d9dff5",
+                        "inverse-primary": "#4edea3",
+                        "on-primary-fixed-variant": "#005236",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed-dim": "#c0c6db",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-high": "#e7e8e9",
+                        "secondary-fixed": "#dce2f7",
+                        "on-tertiary-fixed": "#151c27",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary-container": "#9ca3b2",
+                        "primary": "#006c49",
+                        "primary-container": "#10b981",
+                        "tertiary-fixed-dim": "#c0c7d6",
+                        "primary-fixed-dim": "#4edea3",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f8f9fa",
+                        "tertiary": "#585f6c",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "surface": "#f8f9fa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "xl": "80px",
+                        "xs": "4px",
+                        "gutter": "20px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-xl-mobile": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant dark:border-outline">
+<div class="flex justify-between items-center px-margin-desktop py-base max-w-7xl mx-auto">
+<div class="flex items-center gap-lg">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">Arbuda</span>
+<div class="hidden md:flex gap-md">
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary font-label-md transition-colors duration-200" href="#">Shop All</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container hover:text-primary transition-colors duration-200 font-label-md" href="#">New Arrivals</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container hover:text-primary transition-colors duration-200 font-label-md" href="#">Tech Specs</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex items-center bg-surface-container-low rounded px-sm py-xs border border-outline-variant">
+<span class="material-symbols-outlined text-outline text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48" placeholder="Search accessories..." type="text"/>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative w-full h-[70vh] min-h-[500px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Arbuda Hero Banner" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAngwZEv4A93XlylPnkMXbj1x36_gnl02W3H268UW8iKx0YdUenNk9WumfMcB-p7C_RZax7hVzBzZzMJk8O7nwOdZGnBEdDNedAdVjUJ-SmXGrlRMwlTQuXPyoJAE8lYqt-9ivIJmVLw5bdwqXDueyEIjS6tMUnaM7e1zA2sOyIvZZlchveMoHkY2dGjiiRKql8Bzscuy9OwzqJ7lpup0MkB6ZFhb6DWlZI8SPRzC3CcNLkJY9Kles0LQZbSyl9rJM2kx_hbkzB8DI"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background/80 via-background/20 to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto w-full">
+<div class="max-w-xl">
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-background mb-md">
+                        Elevate Your Tech. <br/>
+<span class="text-primary">Minimalist Protection, Maximum Power.</span>
+</h1>
+<button class="bg-primary text-on-primary h-[48px] px-lg rounded-lg font-label-md hover:bg-on-primary-fixed-variant transition-all duration-300 shadow-sm hover:shadow-md">
+                        Shop Now
+                    </button>
+</div>
+</div>
+</section>
+<!-- Featured Categories -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Chargers -->
+<a class="group flex flex-col items-center gap-base" href="#">
+<div class="w-32 h-32 md:w-48 md:h-48 rounded-full bg-surface-container overflow-hidden border border-outline-variant group-hover:border-primary transition-all duration-300 flex items-center justify-center p-md">
+<div class="relative w-full h-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[48px] md:text-[64px] text-primary/40 group-hover:text-primary transition-colors" data-icon="bolt">bolt</span>
+</div>
+</div>
+<span class="font-headline-md text-body-lg font-bold group-hover:text-primary transition-colors">Chargers</span>
+</a>
+<!-- Cables -->
+<a class="group flex flex-col items-center gap-base" href="#">
+<div class="w-32 h-32 md:w-48 md:h-48 rounded-full bg-surface-container overflow-hidden border border-outline-variant group-hover:border-primary transition-all duration-300 flex items-center justify-center p-md">
+<div class="relative w-full h-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[48px] md:text-[64px] text-primary/40 group-hover:text-primary transition-colors" data-icon="cable">cable</span>
+</div>
+</div>
+<span class="font-headline-md text-body-lg font-bold group-hover:text-primary transition-colors">Cables</span>
+</a>
+<!-- Earbuds -->
+<a class="group flex flex-col items-center gap-base" href="#">
+<div class="w-32 h-32 md:w-48 md:h-48 rounded-full bg-surface-container overflow-hidden border border-outline-variant group-hover:border-primary transition-all duration-300 flex items-center justify-center p-md">
+<div class="relative w-full h-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[48px] md:text-[64px] text-primary/40 group-hover:text-primary transition-colors" data-icon="headphones">headphones</span>
+</div>
+</div>
+<span class="font-headline-md text-body-lg font-bold group-hover:text-primary transition-colors">Earbuds</span>
+</a>
+<!-- Covers -->
+<a class="group flex flex-col items-center gap-base" href="#">
+<div class="w-32 h-32 md:w-48 md:h-48 rounded-full bg-surface-container overflow-hidden border border-outline-variant group-hover:border-primary transition-all duration-300 flex items-center justify-center p-md">
+<div class="relative w-full h-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[48px] md:text-[64px] text-primary/40 group-hover:text-primary transition-colors" data-icon="smartphone">smartphone</span>
+</div>
+</div>
+<span class="font-headline-md text-body-lg font-bold group-hover:text-primary transition-colors">Covers</span>
+</a>
+</div>
+</section>
+<!-- Trending Products -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex justify-between items-end mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Trending Now</h2>
+<a class="text-primary font-label-md flex items-center gap-xs hover:underline transition-all" href="#">
+                        View All Accessories <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Product 1 -->
+<div class="bg-surface rounded-lg border border-outline-variant overflow-hidden group hover:shadow-md transition-all duration-300">
+<div class="aspect-square overflow-hidden bg-white p-lg relative">
+<img alt="65W GaN Fast Charger" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9ugdOWsvqkIC6ZfW-kaZlem12og2-pY-mT6AzcospnmO2fYKyBeSQkj-rDW6rc3eliDQv0rFj0vqxuTe5Ixq5B8rXzao9iech4k1rf5zujvoOL9L55FUgic1F7cKBU_REgtI744HFk14yYwwuzAIlYlbemslY2pB8Fwl0P6LtFlloPlKULbEXtxI1cyywdi8azpY3fvPwvzLQyuWPhrOAnCUKb2282DtbPq62ni5vvxlIP6ur6gMh264v4OCfNoYc9aUe3ViHfac"/>
+<div class="absolute top-base right-base">
+<span class="bg-primary-container text-on-primary-container px-sm py-xs text-label-sm rounded-full font-bold">GAN TECH</span>
+</div>
+</div>
+<div class="p-md space-y-sm">
+<h3 class="font-headline-md text-body-lg text-on-surface">65W GaN Fast Charger</h3>
+<p class="text-primary font-bold text-headline-md">$49.00</p>
+<button class="w-full bg-primary text-on-primary py-sm rounded-lg font-label-md flex items-center justify-center gap-xs hover:bg-on-primary-fixed-variant transition-colors group/btn">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span> Add to Cart
+                            </button>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="bg-surface rounded-lg border border-outline-variant overflow-hidden group hover:shadow-md transition-all duration-300">
+<div class="aspect-square overflow-hidden bg-white p-lg relative">
+<img alt="Pro Braided Cable" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD77Hf1RdLvkGTpbu7ZtEfD963-hZ8VX_9pMnWVeWC5y0tzG8qRHAJShsJn1ZbPBlzGMd5ggf7drOuoUWImBnWCmdl8Y-Js61tJtc9-DXUDJ2BDOBLrn2Pnpm2hNGbSGYSwVmCvIIgAdCm4FRzTLorCdhJlXHVqPhtViRAN2vxD6X2OgOmf7aelBYi4yUthKU6yyj7MJyZb_bUSfuyV4vlUo76cvDKmZs16hQw_jP2O87dWRtUBmrfoCldlxqH-QJsgTs_iCbdIEw8"/>
+</div>
+<div class="p-md space-y-sm">
+<h3 class="font-headline-md text-body-lg text-on-surface">Pro Braided Cable (Emerald)</h3>
+<p class="text-primary font-bold text-headline-md">$25.00</p>
+<button class="w-full bg-primary text-on-primary py-sm rounded-lg font-label-md flex items-center justify-center gap-xs hover:bg-on-primary-fixed-variant transition-colors group/btn">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span> Add to Cart
+                            </button>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="bg-surface rounded-lg border border-outline-variant overflow-hidden group hover:shadow-md transition-all duration-300">
+<div class="aspect-square overflow-hidden bg-white p-lg relative">
+<img alt="Arbuda Air Buds" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmiRCH34kCv3kqP_UjrUiVDr3b6nDR6CHIwJu8vv-jxlsYWm14UkbG4Sao2MMaIHhXuAJkdnFv3_8nR3qc0Vsi18dWYqGRo4rWpRhYShROOFRGbW_kjPW7f9iSmGdFzl8IAWEnZpxFW-7gpsPUT_2dLI1r-rMA4J1q1DfbGLrK3KSxsiwDyTwmF-Crd69UgG-ZTmeiWfoV_NGbjms4XoAbEr16qd_Bs1kTW7mfecliUkj1m3FGDbQMHf8-Uz3p1lFhJuuDQAOkZTQ"/>
+<div class="absolute top-base right-base">
+<span class="bg-secondary-container text-on-secondary-container px-sm py-xs text-label-sm rounded-full font-bold">BEST SELLER</span>
+</div>
+</div>
+<div class="p-md space-y-sm">
+<h3 class="font-headline-md text-body-lg text-on-surface">Arbuda Air Buds</h3>
+<p class="text-primary font-bold text-headline-md">$129.00</p>
+<button class="w-full bg-primary text-on-primary py-sm rounded-lg font-label-md flex items-center justify-center gap-xs hover:bg-on-primary-fixed-variant transition-colors group/btn">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span> Add to Cart
+                            </button>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="bg-surface rounded-lg border border-outline-variant overflow-hidden group hover:shadow-md transition-all duration-300">
+<div class="aspect-square overflow-hidden bg-white p-lg relative">
+<img alt="Crystal MagSafe Case" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRp1vTf0WtxiwkXxQid-fsFQFhCQuBCCMAJv5gBlknejDLC-W9VtFtJXXX3lMUjLf7F7oU9_f2yU70fUtXxtGxmlVkUmjAe9a_cKh77xlWbBxFV23pTV9dX35TG6AKY23N08_lQZIW8t13ZoDheDjP6GF-DwyGE1PMvz3nNhi-EW17lYTwrbdprUowKZx77RazujN0YiJdH87-__yEnDSKWUtl2hkVaj3MXlpEpWRvRCwvmUf_oQVpJnA70kdOZeQR_t6UhTsOaDQ"/>
+</div>
+<div class="p-md space-y-sm">
+<h3 class="font-headline-md text-body-lg text-on-surface">Crystal MagSafe Case</h3>
+<p class="text-primary font-bold text-headline-md">$35.00</p>
+<button class="w-full bg-primary text-on-primary py-sm rounded-lg font-label-md flex items-center justify-center gap-xs hover:bg-on-primary-fixed-variant transition-colors group/btn">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span> Add to Cart
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Value Proposition / Bento Mini -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="p-lg bg-surface border border-outline-variant rounded-xl flex items-start gap-md">
+<span class="material-symbols-outlined text-primary text-[32px]">local_shipping</span>
+<div>
+<h4 class="font-headline-md text-body-lg mb-xs">Fast Shipping</h4>
+<p class="text-on-surface-variant font-body-sm">Global delivery within 3-5 business days. Tracked and insured.</p>
+</div>
+</div>
+<div class="p-lg bg-surface border border-outline-variant rounded-xl flex items-start gap-md">
+<span class="material-symbols-outlined text-primary text-[32px]">verified_user</span>
+<div>
+<h4 class="font-headline-md text-body-lg mb-xs">2-Year Warranty</h4>
+<p class="text-on-surface-variant font-body-sm">Premium protection for your premium accessories. No questions asked.</p>
+</div>
+</div>
+<div class="p-lg bg-surface border border-outline-variant rounded-xl flex items-start gap-md">
+<span class="material-symbols-outlined text-primary text-[32px]">eco</span>
+<div>
+<h4 class="font-headline-md text-body-lg mb-xs">Eco Packaging</h4>
+<p class="text-on-surface-variant font-body-sm">100% recyclable, zero-plastic packaging for a better planet.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-xl pb-lg bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-desktop max-w-7xl mx-auto">
+<div class="md:col-span-4 space-y-md">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-inverse-on-surface">Arbuda</span>
+<p class="text-on-surface-variant dark:text-surface-variant font-body-sm max-w-xs">
+                    Engineering premium accessories for the modern minimalist. Protecting your tech with precision and style.
+                </p>
+<div class="flex gap-sm">
+<a class="w-8 h-8 rounded-full border border-outline flex items-center justify-center hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">public</span>
+</a>
+<a class="w-8 h-8 rounded-full border border-outline flex items-center justify-center hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</a>
+</div>
+</div>
+<div class="md:col-span-2 flex flex-col gap-sm">
+<h5 class="text-primary dark:text-primary-fixed font-label-md">Shop</h5>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-sm" href="#">Shop All</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-sm" href="#">Cables</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-sm" href="#">Chargers</a>
+</div>
+<div class="md:col-span-2 flex flex-col gap-sm">
+<h5 class="text-primary dark:text-primary-fixed font-label-md">Support</h5>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-sm" href="#">FAQs</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-sm" href="#">Contact Support</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-sm" href="#">Shipping Policy</a>
+</div>
+<div class="md:col-span-4 space-y-sm">
+<h5 class="text-primary dark:text-primary-fixed font-label-md">Newsletter</h5>
+<p class="text-on-surface-variant dark:text-surface-variant font-body-sm">Join for early access to product launches.</p>
+<div class="flex gap-xs">
+<input class="bg-white border-outline-variant rounded-lg px-sm py-xs text-body-sm focus:ring-primary w-full" placeholder="Email address" type="email"/>
+<button class="bg-primary text-on-primary px-sm rounded-lg font-label-md hover:bg-on-primary-fixed-variant transition-colors">Join</button>
+</div>
+</div>
+</div>
+<div class="mt-xl border-t border-outline-variant/30 pt-md max-w-7xl mx-auto px-margin-desktop text-center">
+<p class="text-on-surface-variant dark:text-surface-variant font-body-sm">© 2024 Arbuda Mobile Accessories. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Subtle scroll animation for navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-sm');
+            }
+        });
+
+        // Add micro-interactions for Add to Cart buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if(this.textContent.includes('Add to Cart')) {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<span class="material-symbols-outlined text-[18px]">done</span> Added';
+                    this.classList.replace('bg-primary', 'bg-primary-container');
+                    this.classList.replace('text-on-primary', 'text-on-primary-container');
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.classList.replace('bg-primary-container', 'bg-primary');
+                        this.classList.replace('text-on-primary-container', 'text-on-primary');
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+</body></html>
