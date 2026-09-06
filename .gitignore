@@ -21,3 +21,4 @@
 **/*.log
 **/.DS_Store
 **/uploads/
+mobile/android/temp_bin/
