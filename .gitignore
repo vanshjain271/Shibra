@@ -1,0 +1,23 @@
+# Dependencies
+**/node_modules/
+
+# Environment secrets — NEVER commit
+**/.env
+**/google-services.json
+**/GoogleService-Info.plist
+**/*.p8
+**/*.p12
+**/*.keystore
+
+# Build artifacts
+**/.next/
+**/dist/
+**/build/
+**/ios/build/
+**/android/.gradle/
+**/android/app/build/
+
+# Logs & temp
+**/*.log
+**/.DS_Store
+**/uploads/
