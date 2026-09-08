@@ -62,7 +62,7 @@ const TopBar: React.FC<TopBarProps> = ({ handleDrawerToggle }) => {
           onClick={handleVisitStore}
           sx={{ textTransform: 'none', color: '#1F2937' }}
         >
-          <Typography variant="body2" sx={{ fontWeight: 600 }}>Arbuda Accessories</Typography>
+          <Typography variant="body2" sx={{ fontWeight: 600 }}>Shibra Accessories</Typography>
         </Button>
         <Box sx={{ flexGrow: 1 }} />
         <IconButton color="inherit" sx={{ mr: 1 }}>
