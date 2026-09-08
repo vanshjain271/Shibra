@@ -1,8 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || '/api/v1'; // 
-  ? '/api/v1' 
-  : (import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || '/api/v1');
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v1';
 
 class ApiClient {
   private client: AxiosInstance;
