@@ -51,12 +51,12 @@ const Login: React.FC = () => {
                         <Box
                             component="img"
                             src="/assets/logo.jpg"
-                            alt="Arbuda"
+                            alt="Shibra"
                             sx={{ height: 60, mb: 2 }}
                             onError={(e: any) => { e.target.style.display = 'none'; }}
                         />
                         <Typography variant="h4" sx={{ fontWeight: 700, color: '#2563EB' }}>
-                            Arbuda Admin
+                            Shibra Admin
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             Sign in to your account
