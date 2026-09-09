@@ -72,7 +72,8 @@ app.use(cors({
     'https://api.shibrab2b.com',
     /\.vercel\.app$/,
     /\.amplifyapp\.com$/, // Allow Amplify deployments
-    /\.cloudfront\.net$/, // Allow CloudFront temporary URLs // Allow all Vercel preview deployments
+    /\.cloudfront\.net$/, // Allow CloudFront temporary URLs
+    /\.trycloudflare\.com$/, // Allow Cloudflare Tunnels // Allow all Vercel preview deployments
     'http://localhost:3000', // Storefront (Next.js default)
     'http://localhost:3001', // Admin panel
     'http://localhost:3002', // Storefront (custom port)
