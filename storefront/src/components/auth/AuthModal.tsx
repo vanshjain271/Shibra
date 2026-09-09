@@ -139,21 +139,18 @@ export default function AuthModal() {
       }
     }
     
-    if (!auth || !recaptchaVerifier.current) {
-      setError('Authentication service is currently unavailable.');
-      return;
-    }
-
     setError('');
     setLoading(true);
     try {
-      const formattedPhone = `+91${phone}`;
-      const confirmation = await signInWithPhoneNumber(auth, formattedPhone, recaptchaVerifier.current);
-      setConfirmationResult(confirmation);
-      setStep('otp');
+      const res = await api.post('/auth/send-otp', { phone });
+      if (res.data.success) {
+        setStep('otp');
+      } else {
+        setError(res.data.message || 'Failed to send OTP.');
+      }
     } catch (err: any) {
       console.error(err);
-      setError(err.message || 'Failed to send OTP. Please try again.');
+      setError(err.response?.data?.message || err.message || 'Failed to send OTP. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -165,20 +162,37 @@ export default function AuthModal() {
       setError('Please enter a valid OTP');
       return;
     }
-    if (!confirmationResult) {
-      setError('No OTP session found. Please request a new OTP.');
-      return;
-    }
 
     setError('');
     setLoading(true);
     try {
-      const result = await confirmationResult.confirm(otp);
-      const idToken = await result.user.getIdToken(true);
-      await processFirebaseToken(idToken);
+      const res = await api.post('/auth/verify-otp', { phone, otp });
+      if (res.data.success) {
+        const { token, user } = res.data;
+        api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        
+        let updatedUser = user;
+        if (mode === 'signup' && phone) {
+          try {
+            const profileRes = await api.put('/users/me', { name, email });
+            if (profileRes.data.success) {
+              updatedUser = profileRes.data.user;
+            }
+          } catch (profileErr) {
+            console.error('Failed to update profile after signup:', profileErr);
+          }
+        }
+
+        useAuthStore.getState().login(updatedUser, token);
+        resetModal();
+        closeLoginModal();
+      } else {
+        setError(res.data.message || 'Invalid OTP');
+      }
     } catch (err: any) {
       console.error(err);
-      setError('Invalid OTP. Please try again.');
+      setError(err.response?.data?.message || err.message || 'Invalid OTP. Please try again.');
+    } finally {
       setLoading(false);
     }
   };
