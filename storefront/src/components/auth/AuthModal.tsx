@@ -183,7 +183,7 @@ export default function AuthModal() {
           }
         }
 
-        useAuthStore.getState().login(updatedUser, token);
+        useAuthStore.getState().setAuth(token, updatedUser);
         resetModal();
         closeLoginModal();
       } else {
