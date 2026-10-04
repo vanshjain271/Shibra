@@ -3,6 +3,7 @@
  */
 
 const express = require('express');
+const { apiCache } = require('../middleware/cache.middleware');
 const router = express.Router();
 const BannerController = require('../controllers/banner.controller');
 
@@ -12,7 +13,7 @@ const setCache = (req, res, next) => {
   next();
 };
 
-router.get('/', setCache, BannerController.getActiveBanners);
+router.get('/', apiCache, setCache, BannerController.getActiveBanners);
 router.post('/:bannerId/view', BannerController.trackView);
 router.post('/:bannerId/click', BannerController.trackClick);
 

@@ -4,6 +4,7 @@
  */
 
 const express = require('express');
+const { apiCache } = require('../middleware/cache.middleware');
 const router = express.Router();
 const Brand = require('../models/Brand');
 
@@ -17,7 +18,7 @@ const setCache = (req, res, next) => {
  * GET /api/v1/brands
  * Get all active brands
  */
-router.get('/', setCache, async (req, res) => {
+router.get('/', apiCache, setCache, async (req, res) => {
     try {
         const brands = await Brand.find({ isActive: true })
             .sort('sortOrder name')

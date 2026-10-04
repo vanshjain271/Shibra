@@ -4,6 +4,7 @@
  */
 
 const express = require('express');
+const { apiCache } = require('../middleware/cache.middleware');
 const router = express.Router();
 const Category = require('../models/Category');
 
@@ -17,7 +18,7 @@ const setCache = (req, res, next) => {
  * GET /api/v1/categories
  * Get all active categories
  */
-router.get('/', setCache, async (req, res) => {
+router.get('/', apiCache, setCache, async (req, res) => {
     try {
         const categories = await Category.find({ isActive: true })
             .sort('sortOrder name')

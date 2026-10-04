@@ -8,6 +8,7 @@
  */
 
 const express = require('express');
+const { apiCache } = require('../middleware/cache.middleware');
 const router = express.Router();
 
 const ProductController = require('../controllers/product.controller');
