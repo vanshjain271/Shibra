@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.shibra.in';
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://13.201.30.242:5001/api/v1';
+  const apiUrl = 'http://13.207.173.70:5001/api/v1';
 
   // Fetch all active products
   let products: any[] = [];

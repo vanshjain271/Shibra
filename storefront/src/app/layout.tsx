@@ -16,7 +16,7 @@ const inter = Inter({
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://13.201.30.242:5001/api/v1';
+    const apiUrl = 'http://13.207.173.70:5001/api/v1';
     const res = await fetch(`${apiUrl}/settings`, { 
       next: { revalidate: 60 } // cache for 60 seconds
     });
